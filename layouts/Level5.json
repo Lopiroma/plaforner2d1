@@ -1127,7 +1127,7 @@
 					}
 				},
 				{
-					"type": "скелет",
+					"type": "skel",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -1139,7 +1139,8 @@
 					"sid": 467482790836785,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 3
+						"HP": 3,
+						"Direction": "stop"
 					},
 					"behaviors": {
 						"Платформер": {
@@ -1263,7 +1264,7 @@
 					}
 				},
 				{
-					"type": "Игрок",
+					"type": "player",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",

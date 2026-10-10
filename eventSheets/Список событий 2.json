@@ -10,7 +10,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 158217971406121,
 					"parameters": {
 						"object": "Спрайт"

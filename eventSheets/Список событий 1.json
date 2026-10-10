@@ -116,7 +116,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 115569719889033,
 					"parameters": {
 						"object": "монета"
@@ -161,7 +161,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Игрок",
+							"objectClass": "player",
 							"sid": 649963582295958,
 							"parameters": {
 								"object": "КартаТайлов"
@@ -169,7 +169,7 @@
 						},
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Игрок",
+							"objectClass": "player",
 							"sid": 584818392574036,
 							"parameters": {
 								"object": "враги"
@@ -196,7 +196,7 @@
 						},
 						{
 							"id": "flash",
-							"objectClass": "Игрок",
+							"objectClass": "player",
 							"sid": 111129422820809,
 							"behaviorType": "Мигание",
 							"parameters": {
@@ -216,7 +216,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 873132855513257,
 					"parameters": {
 						"object": "дверь"
@@ -297,7 +297,7 @@
 			"actions": [
 				{
 					"id": "set-mirrored",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 454264261887990,
 					"parameters": {
 						"state": "not-mirrored"
@@ -305,7 +305,7 @@
 				},
 				{
 					"id": "simulate-control",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 291634627386132,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -384,7 +384,7 @@
 			"actions": [
 				{
 					"id": "set-mirrored",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 235697982808907,
 					"parameters": {
 						"state": "mirrored"
@@ -392,7 +392,7 @@
 				},
 				{
 					"id": "simulate-control",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 885586152243403,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -471,7 +471,7 @@
 			"actions": [
 				{
 					"id": "simulate-control",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 199144753921059,
 					"behaviorType": "Платформер",
 					"parameters": {
@@ -498,7 +498,7 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 659798062339525
 				},
 				{
@@ -625,7 +625,7 @@
 					"sid": 507717471260192,
 					"behaviorType": "Пуля",
 					"parameters": {
-						"angle": "Игрок.Width < 0 ? 180 : 0"
+						"angle": "player.Width < 0 ? 180 : 0"
 					}
 				},
 				{
@@ -660,7 +660,7 @@
 				},
 				{
 					"id": "subtract-from-instvar",
-					"objectClass": "скелет",
+					"objectClass": "skel",
 					"sid": 934834342941989,
 					"parameters": {
 						"instance-variable": "HP",
@@ -784,11 +784,11 @@
 			"conditions": [
 				{
 					"id": "has-los-to-object",
-					"objectClass": "скелет",
+					"objectClass": "skel",
 					"sid": 329336482313865,
 					"behaviorType": "ПолеЗрения",
 					"parameters": {
-						"object": "Игрок",
+						"object": "player",
 						"image-point": "0"
 					}
 				}
@@ -811,11 +811,11 @@
 			"conditions": [
 				{
 					"id": "has-los-to-object",
-					"objectClass": "скелет",
+					"objectClass": "skel",
 					"sid": 763111915113967,
 					"behaviorType": "ПолеЗрения",
 					"parameters": {
-						"object": "Игрок",
+						"object": "player",
 						"image-point": "0"
 					},
 					"isInverted": true
@@ -887,7 +887,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Преследование",
 			"description": "",
 			"isActiveOnStart": false,
@@ -900,16 +900,16 @@
 							"objectClass": "System",
 							"sid": 130069419577310,
 							"parameters": {
-								"first-value": "Игрок.X+20",
+								"first-value": "player.X+20",
 								"comparison": 2,
-								"second-value": "скелет.X"
+								"second-value": "skel.X"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "simulate-control",
-							"objectClass": "скелет",
+							"objectClass": "skel",
 							"sid": 607264777312052,
 							"behaviorType": "Платформер",
 							"parameters": {
@@ -917,7 +917,8 @@
 							}
 						}
 					],
-					"sid": 593679570080798
+					"sid": 593679570080798,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -927,16 +928,16 @@
 							"objectClass": "System",
 							"sid": 874866099600906,
 							"parameters": {
-								"first-value": "Игрок.X-20",
+								"first-value": "player.X-20",
 								"comparison": 4,
-								"second-value": "скелет.X"
+								"second-value": "skel.X"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "simulate-control",
-							"objectClass": "скелет",
+							"objectClass": "skel",
 							"sid": 635674189956009,
 							"behaviorType": "Платформер",
 							"parameters": {
@@ -944,7 +945,8 @@
 							}
 						}
 					],
-					"sid": 665453437361765
+					"sid": 665453437361765,
+					"disabled": true
 				}
 			],
 			"sid": 943415088049738
@@ -1008,7 +1010,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 528423817046656,
 					"parameters": {
 						"object": "алмМеч"
@@ -1041,7 +1043,7 @@
 					"sid": 867119619532041,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Игрок",
+						"pin-to": "player",
 						"image-point": "1",
 						"angle": false,
 						"width-type": "no",
@@ -1066,7 +1068,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 959302952161610,
 					"parameters": {
 						"object": "gun"
@@ -1099,7 +1101,7 @@
 					"sid": 378304419011136,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Игрок",
+						"pin-to": "player",
 						"image-point": "1",
 						"angle": false,
 						"width-type": "no",
@@ -1145,7 +1147,7 @@
 					"sid": 879255509927221,
 					"behaviorType": "Прикрепить",
 					"parameters": {
-						"pin-to": "Игрок",
+						"pin-to": "player",
 						"image-point": "1",
 						"angle": true,
 						"width-type": "no",
@@ -1348,7 +1350,7 @@
 					"actions": [
 						{
 							"id": "subtract-from-instvar",
-							"objectClass": "скелет",
+							"objectClass": "skel",
 							"sid": 285504719580387,
 							"parameters": {
 								"instance-variable": "HP",
@@ -1493,7 +1495,7 @@
 							"sid": 586250075369643,
 							"behaviorType": "Прикрепить",
 							"parameters": {
-								"pin-to": "Игрок",
+								"pin-to": "player",
 								"image-point": "1",
 								"angle": true,
 								"width-type": "no",
@@ -1570,7 +1572,7 @@
 							"sid": 901724345994749,
 							"behaviorType": "Прикрепить",
 							"parameters": {
-								"pin-to": "Игрок",
+								"pin-to": "player",
 								"image-point": "1",
 								"angle": true,
 								"width-type": "no",
@@ -1586,7 +1588,7 @@
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "скелет",
+							"objectClass": "skel",
 							"sid": 516259502871747,
 							"parameters": {
 								"instance-variable": "HP",
@@ -1598,7 +1600,7 @@
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "скелет",
+							"objectClass": "skel",
 							"sid": 255203723172021
 						}
 					],
@@ -1747,6 +1749,103 @@
 				}
 			],
 			"sid": 932219552357406
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "skel",
+					"sid": 826797395957590,
+					"parameters": {
+						"instance-variable": "Direction",
+						"comparison": 0,
+						"value": "\"run_left\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "skel",
+					"sid": 479951255445849,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "left"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "skel",
+					"sid": 459435653540440,
+					"parameters": {
+						"state": "mirrored"
+					}
+				}
+			],
+			"sid": 721529197681386
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "skel",
+					"sid": 364579655220382,
+					"parameters": {
+						"instance-variable": "Direction",
+						"comparison": 0,
+						"value": "\"run_right\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "skel",
+					"sid": 873680938545691,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "right"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "skel",
+					"sid": 854112263956925,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 474087081708162
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "skel",
+					"sid": 415628182703706,
+					"parameters": {
+						"instance-variable": "Direction",
+						"comparison": 0,
+						"value": "\"jump\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "skel",
+					"sid": 701581346278531,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 391257963348292
 		}
 	],
 	"sid": 309704835778913

@@ -1,5 +1,5 @@
 {
-	"name": "скелет",
+	"name": "skel",
 	"plugin-id": "Sprite",
 	"sid": 462297988993712,
 	"isGlobal": false,
@@ -11,6 +11,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 501214366362939
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 274505269470847
 		}
 	],
 	"behaviorTypes": [

@@ -62,7 +62,7 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 527979976902672,
 					"parameters": {
 						"object": "Спрайт"
@@ -88,12 +88,12 @@
 				},
 				{
 					"id": "destroy",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 518469303226593
 				},
 				{
 					"id": "set-enabled",
-					"objectClass": "Игрок",
+					"objectClass": "player",
 					"sid": 394973505040283,
 					"behaviorType": "СледитьЗа",
 					"parameters": {

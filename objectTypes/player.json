@@ -1,5 +1,5 @@
 {
-	"name": "Игрок",
+	"name": "player",
 	"plugin-id": "Sprite",
 	"sid": 977115170143370,
 	"isGlobal": false,

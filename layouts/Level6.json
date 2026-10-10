@@ -528,7 +528,7 @@
 					}
 				},
 				{
-					"type": "Игрок",
+					"type": "player",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
