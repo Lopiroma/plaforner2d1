@@ -1,5 +1,5 @@
 // Gemini.js - Модуль для запросов к ИИ
-const API_KEY = "???";
+const API_KEY = "no api key";
 
 export async function askSkeletonBrain(skelX, skelY, skelHP, playerX, playerY) {
     const url = `https://googleapis.com{API_KEY}`;
