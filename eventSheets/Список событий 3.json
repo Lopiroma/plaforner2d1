@@ -1,0 +1,108 @@
+{
+	"name": "Список событий 3",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Список событий 1"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 895244440244841
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 754489075767943,
+					"parameters": {
+						"variable": "Оружее",
+						"value": "0"
+					}
+				},
+				{
+					"id": "unpin",
+					"objectClass": "алмМеч",
+					"sid": 651357605730415,
+					"behaviorType": "Прикрепить"
+				},
+				{
+					"id": "unpin",
+					"objectClass": "gun",
+					"sid": 523514567054270,
+					"behaviorType": "Прикрепить"
+				},
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "алмМеч",
+					"sid": 756445961451362,
+					"parameters": {
+						"object": "spawnоружия",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "gun",
+					"sid": 389246750849151,
+					"parameters": {
+						"object": "spawnоружия",
+						"image-point-optional": "0"
+					}
+				}
+			],
+			"sid": 156310264463761
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 527979976902672,
+					"parameters": {
+						"object": "Спрайт"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Win",
+					"sid": 664595909442700,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Кнопка",
+					"sid": 233557806093667,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Игрок",
+					"sid": 518469303226593
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Игрок",
+					"sid": 394973505040283,
+					"behaviorType": "СледитьЗа",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 211967657114992
+		}
+	],
+	"sid": 149673495055947
+}

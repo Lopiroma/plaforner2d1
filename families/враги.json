@@ -1,0 +1,11 @@
+{
+	"name": "враги",
+	"plugin-id": "Sprite",
+	"sid": 537539511430555,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"скелет"
+	]
+}

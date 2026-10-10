@@ -1,0 +1,40 @@
+{
+	"name": "КартаТайлов",
+	"plugin-id": "Tilemap",
+	"sid": 705504027500495,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 32,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 334646,
+		"useCollisionPoly": true,
+		"tag": ""
+	},
+	"tile-collision-polys": {
+		"1": {
+			"collisionPoly": {
+				"points": [
+					0.20880681818181812,
+					0.686079545454546,
+					0.49715909090909083,
+					0.6875000000000006,
+					0.49999999999999906,
+					1,
+					0.21590909090909088,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"name": "isAdmin",
+	"plugin-id": "Text",
+	"sid": 677892801984992,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Якорь",
+			"sid": 842614550244572
+		}
+	],
+	"effectTypes": []
+}

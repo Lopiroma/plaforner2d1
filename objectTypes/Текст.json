@@ -1,0 +1,16 @@
+{
+	"name": "Текст",
+	"plugin-id": "Text",
+	"sid": 471779343242981,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Якорь",
+			"sid": 848268453359797
+		}
+	],
+	"effectTypes": []
+}

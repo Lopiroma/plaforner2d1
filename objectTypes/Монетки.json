@@ -1,0 +1,16 @@
+{
+	"name": "Монетки",
+	"plugin-id": "Text",
+	"sid": 550781459700051,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Якорь",
+			"sid": 813803399798492
+		}
+	],
+	"effectTypes": []
+}

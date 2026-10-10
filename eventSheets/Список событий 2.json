@@ -1,0 +1,31 @@
+{
+	"name": "Список событий 2",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Список событий 1"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 158217971406121,
+					"parameters": {
+						"object": "Спрайт"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "земля2",
+					"sid": 296074683734348
+				}
+			],
+			"sid": 409562077880749
+		}
+	],
+	"sid": 837509597097065
+}

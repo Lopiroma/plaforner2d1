@@ -1,0 +1,60 @@
+{
+	"name": "монета",
+	"plugin-id": "Sprite",
+	"sid": 625814549951261,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Твёрдый",
+			"sid": 236485463484722
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5232140,
+						"collisionPoly": {
+							"points": [
+								0.11034482758620698,
+								0.09482758620689657,
+								0.5086206896551727,
+								0.09655172413793107,
+								0.9068965517241384,
+								0.09827586206896557,
+								0.9000000000000015,
+								0.8948275862068978,
+								0.09482758620689649,
+								0.9000000000000015
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 846924559845937,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"name": "ЧтоНаноситУронОтИгрока",
+	"plugin-id": "Sprite",
+	"sid": 980119310730172,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"алмМеч",
+		"images"
+	]
+}

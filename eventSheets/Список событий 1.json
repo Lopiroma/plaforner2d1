@@ -1,0 +1,1753 @@
+{
+	"name": "Список событий 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Патронов",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 411741537402884
+		},
+		{
+			"eventType": "variable",
+			"name": "Перезарежается",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 821694819470629
+		},
+		{
+			"eventType": "variable",
+			"name": "Монетки",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 324327632604126
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentLevel",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 715955714560989
+		},
+		{
+			"eventType": "variable",
+			"name": "HP",
+			"type": "number",
+			"initialValue": "11",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 194843587503224
+		},
+		{
+			"eventType": "variable",
+			"name": "isAdmin",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 317011970381837
+		},
+		{
+			"eventType": "variable",
+			"name": "sword",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 375026359484041
+		},
+		{
+			"eventType": "variable",
+			"name": "Атакует",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 153511844739932
+		},
+		{
+			"eventType": "variable",
+			"name": "Атаковал",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 565511571170459
+		},
+		{
+			"eventType": "variable",
+			"name": "Оружее",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 536746882265242
+		},
+		{
+			"eventType": "variable",
+			"name": "pushka",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 242613243522627
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 115569719889033,
+					"parameters": {
+						"object": "монета"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "монета",
+					"sid": 308104116643215
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 201583069668013,
+					"parameters": {
+						"variable": "Монетки",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 506050904885542
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 108365152127134,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 479016699581975,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Игрок",
+							"sid": 649963582295958,
+							"parameters": {
+								"object": "КартаТайлов"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Игрок",
+							"sid": 584818392574036,
+							"parameters": {
+								"object": "враги"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 486470701892762,
+							"parameters": {
+								"variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "хп",
+							"sid": 291517016471898,
+							"parameters": {
+								"frame-number": "HP"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Игрок",
+							"sid": 111129422820809,
+							"behaviorType": "Мигание",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "2"
+							}
+						}
+					],
+					"sid": 188442912647271,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 873132855513257,
+					"parameters": {
+						"object": "дверь"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 700420937078925,
+					"parameters": {
+						"variable": "CurrentLevel",
+						"value": "1"
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 355677980526640,
+					"parameters": {
+						"layout": "\"Level\" & CurrentLevel"
+					}
+				}
+			],
+			"sid": 859699461039168
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Кнопка",
+					"sid": 283022417600862
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 795903784785757,
+					"parameters": {
+						"layout": "Level1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 610171157478806,
+					"parameters": {
+						"variable": "Монетки",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "GameOver",
+					"sid": 102575601917820,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 196266841266400
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 920188448705622,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Игрок",
+					"sid": 454264261887990,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "Игрок",
+					"sid": 291634627386132,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 894074848588335,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 869801381764170,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "gun",
+							"sid": 910532520194136,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 488761119169563
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 291346732712597,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "алмМеч",
+							"sid": 182253755643120,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 916774964830886
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Клавиатура",
+					"sid": 849387710393692,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-mirrored",
+					"objectClass": "Игрок",
+					"sid": 235697982808907,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "Игрок",
+					"sid": 885586152243403,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "left"
+					}
+				}
+			],
+			"sid": 593546272303698,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 966281149476840,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "gun",
+							"sid": 867801748441198,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 823841944107130
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 513616583114406,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "алмМеч",
+							"sid": 218858188959594,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 596324595153782
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 700580051232765,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Игрок",
+					"sid": 199144753921059,
+					"behaviorType": "Платформер",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 159419770607577
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 642716294968743,
+					"parameters": {
+						"variable": "HP",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Игрок",
+					"sid": 659798062339525
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "GameOver",
+					"sid": 125756218231690,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Монетки",
+					"sid": 141441955562240,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Кнопка",
+					"sid": 438315876442693,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 425933093008396
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 434360090058078
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-animation",
+					"objectClass": "хп",
+					"sid": 855179008631036
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "хп",
+					"sid": 123338108663990,
+					"parameters": {
+						"frame-number": "11"
+					}
+				}
+			],
+			"sid": 915044971184531
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 841627245908970,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 309018569429744,
+					"parameters": {
+						"variable": "Оружее",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 792276301264373,
+					"parameters": {
+						"variable": "pushka",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 902840733653793,
+					"parameters": {
+						"variable": "Патронов",
+						"comparison": 1,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "gun",
+					"sid": 968641804999765,
+					"parameters": {
+						"object": "images",
+						"layer": "0",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 623098113235315,
+					"parameters": {
+						"variable": "Патронов",
+						"value": "Патронов = -1 ? 0 : 1"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "images",
+					"sid": 507717471260192,
+					"behaviorType": "Пуля",
+					"parameters": {
+						"angle": "Игрок.Width < 0 ? 180 : 0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "gun",
+					"sid": 616577301234316,
+					"parameters": {
+						"animation": "\"1\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 734304712834128
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "gun",
+					"sid": 567962876201515,
+					"parameters": {
+						"object": "враги"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "images",
+					"sid": 612870825884372
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "скелет",
+					"sid": 934834342941989,
+					"parameters": {
+						"instance-variable": "HP",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 753329419541408,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 435649497364186,
+					"parameters": {
+						"key": 76
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 347967244779197,
+					"parameters": {
+						"variable": "isAdmin",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 674745311968023,
+					"parameters": {
+						"variable": "Патронов",
+						"value": "-1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 791186277288701,
+					"parameters": {
+						"variable": "Монетки",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 171566940356736
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 108292377176420,
+					"parameters": {
+						"variable": "Патронов",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 403514353059827,
+					"parameters": {
+						"variable": "Перезарежается",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 921183217684173,
+					"parameters": {
+						"variable": "Перезарежается",
+						"value": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 102169589502595,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 187854446995079,
+					"parameters": {
+						"variable": "Патронов",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 595490924948191,
+					"parameters": {
+						"variable": "Перезарежается",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 452606886788320
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "скелет",
+					"sid": 329336482313865,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"object": "Игрок",
+						"image-point": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 604147913588332,
+					"parameters": {
+						"group-name": "\"Преследование\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 711303248159567
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "скелет",
+					"sid": 763111915113967,
+					"behaviorType": "ПолеЗрения",
+					"parameters": {
+						"object": "Игрок",
+						"image-point": "0"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 196488506101965,
+					"parameters": {
+						"group-name": "\"Преследование\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 284970176517639
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 739452746821758,
+					"parameters": {
+						"mouse-button": "button-5",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 786253553935956,
+					"parameters": {
+						"variable": "isAdmin",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "ПарольВАдм",
+					"sid": 486749687569049,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ТекстВход",
+					"sid": 887481076997271,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Кнопка2",
+					"sid": 714837542417254,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 148954990246970
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Преследование",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 130069419577310,
+							"parameters": {
+								"first-value": "Игрок.X+20",
+								"comparison": 2,
+								"second-value": "скелет.X"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "скелет",
+							"sid": 607264777312052,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 593679570080798
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 874866099600906,
+							"parameters": {
+								"first-value": "Игрок.X-20",
+								"comparison": 4,
+								"second-value": "скелет.X"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "скелет",
+							"sid": 635674189956009,
+							"behaviorType": "Платформер",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 665453437361765
+				}
+			],
+			"sid": 943415088049738
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Кнопка2",
+					"sid": 664143754563806
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 443008483548733,
+					"parameters": {
+						"variable": "isAdmin",
+						"value": "(ПарольВАдм.Text = \"\" ? 1 : 0)"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ПарольВАдм",
+					"sid": 246988708683656,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ТекстВход",
+					"sid": 542584038233541,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Кнопка2",
+					"sid": 973462534469512,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "isAdmin",
+					"sid": 567761686642911,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 400633505741030
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 528423817046656,
+					"parameters": {
+						"object": "алмМеч"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 434225254738362,
+					"parameters": {
+						"variable": "sword",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 261449946456393,
+					"parameters": {
+						"variable": "sword",
+						"value": "1"
+					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "алмМеч",
+					"sid": 867119619532041,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Игрок",
+						"image-point": "1",
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 180476695347844,
+					"parameters": {
+						"variable": "Оружее",
+						"value": "2"
+					}
+				}
+			],
+			"sid": 659353679393763
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Игрок",
+					"sid": 959302952161610,
+					"parameters": {
+						"object": "gun"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 694041786736231,
+					"parameters": {
+						"variable": "pushka",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 349305588088095,
+					"parameters": {
+						"variable": "pushka",
+						"value": "1"
+					}
+				},
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "gun",
+					"sid": 378304419011136,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Игрок",
+						"image-point": "1",
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 577368555310869,
+					"parameters": {
+						"variable": "Оружее",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 690444234821484
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 976899678879639
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 498399967138634,
+					"parameters": {
+						"variable": "sword",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "алмМеч",
+					"sid": 879255509927221,
+					"behaviorType": "Прикрепить",
+					"parameters": {
+						"pin-to": "Игрок",
+						"image-point": "1",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 452315190867262
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Мышь",
+					"sid": 262831227649592,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 189318462959185,
+					"parameters": {
+						"variable": "Оружее",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 689590882403641,
+					"parameters": {
+						"variable": "sword",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "алмМеч",
+					"sid": 789079491906886,
+					"parameters": {
+						"animation": "\"1\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 227209085126794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 392268664664140,
+					"parameters": {
+						"key": 49
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 194996589728126,
+					"parameters": {
+						"variable": "pushka",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 784727392239452,
+					"parameters": {
+						"variable": "Оружее",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 771206559207354
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Клавиатура",
+					"sid": 772141155012486,
+					"parameters": {
+						"key": 50
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 763254650608275,
+					"parameters": {
+						"variable": "sword",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 808989222450015,
+					"parameters": {
+						"variable": "Оружее",
+						"value": "2"
+					}
+				}
+			],
+			"sid": 509230938207224
+		},
+		{
+			"eventType": "comment",
+			"text": "Пушка 1 ,а меч 2"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 912528073383051
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Монетки",
+					"sid": 261760872921161,
+					"parameters": {
+						"text": "\"Монеты: \" & (Монетки = -1 ? \"∞\" : Монетки)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Патры",
+					"sid": 422415734786684,
+					"parameters": {
+						"text": "\"Патронов: \" & (Патронов = -1 ? \"∞\" : Патронов)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Текст",
+					"sid": 124093104595727,
+					"parameters": {
+						"text": "ОбУстройстве.DeviceMemory"
+					}
+				}
+			],
+			"sid": 470185139614827,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "алмМеч",
+							"sid": 164633669085969,
+							"parameters": {
+								"object": "враги"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 896198350898316,
+							"parameters": {
+								"variable": "Атакует",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 268970684669143,
+							"parameters": {
+								"variable": "Атаковал",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "скелет",
+							"sid": 285504719580387,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 267818940243303,
+							"parameters": {
+								"variable": "Атаковал",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 378279517111282
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "алмМеч",
+							"sid": 737172620697586,
+							"parameters": {
+								"animation": "\"1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 846670748161156,
+							"parameters": {
+								"variable": "Атакует",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 382030378948885
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "алмМеч",
+							"sid": 538967668198920,
+							"parameters": {
+								"comparison": 0,
+								"number": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 234947982237129,
+							"parameters": {
+								"variable": "Атакует",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 997464426727390,
+							"parameters": {
+								"variable": "Атаковал",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 548505783868539
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 600826459910547,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 289600046418820,
+							"parameters": {
+								"variable": "sword",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 458536393443771,
+							"parameters": {
+								"variable": "Атакует",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 790392196705732,
+							"parameters": {
+								"variable": "pushka",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "алмМеч",
+							"sid": 354515170609385,
+							"behaviorType": "Прикрепить"
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "алмМеч",
+							"sid": 417266289921928,
+							"parameters": {
+								"object": "spawnоружия",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "gun",
+							"sid": 586250075369643,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Игрок",
+								"image-point": "1",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 971406067263273
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 515252867756378,
+							"parameters": {
+								"variable": "Оружее",
+								"comparison": 0,
+								"value": "2"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 135829619506833,
+							"parameters": {
+								"variable": "sword",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 217609660086390,
+							"parameters": {
+								"variable": "Атакует",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 721862297708566,
+							"parameters": {
+								"variable": "pushka",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "gun",
+							"sid": 448593827153508,
+							"behaviorType": "Прикрепить"
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "gun",
+							"sid": 409114565656462,
+							"parameters": {
+								"object": "spawnоружия",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "алмМеч",
+							"sid": 901724345994749,
+							"behaviorType": "Прикрепить",
+							"parameters": {
+								"pin-to": "Игрок",
+								"image-point": "1",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 990864039382021
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "скелет",
+							"sid": 516259502871747,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "скелет",
+							"sid": 255203723172021
+						}
+					],
+					"sid": 732443087962931
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "images",
+					"sid": 261230289056657,
+					"parameters": {
+						"object": "земля"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "images",
+					"sid": 279950397551148
+				}
+			],
+			"sid": 474020771280206
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Повтор",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 882978078531166
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 588925585753214,
+							"parameters": {
+								"variable": "CurrentLevel",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 856324980214658,
+							"parameters": {
+								"variable": "HP",
+								"value": "11"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 767652566239937,
+							"parameters": {
+								"variable": "pushka",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 286827348568269,
+							"parameters": {
+								"variable": "sword",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 348880531468767,
+							"parameters": {
+								"variable": "Атаковал",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 933143765479653,
+							"parameters": {
+								"variable": "Атакует",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 162614374716278,
+							"parameters": {
+								"variable": "Монетки",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 996809056064521,
+							"parameters": {
+								"variable": "Оружее",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 422012644924543,
+							"parameters": {
+								"variable": "Патронов",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 794401146588020,
+							"parameters": {
+								"variable": "Перезарежается",
+								"value": "0"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 816654402282898,
+							"parameters": {
+								"layout": "Level1"
+							}
+						}
+					],
+					"sid": 222798213501317
+				}
+			],
+			"sid": 932219552357406
+		}
+	],
+	"sid": 309704835778913
+}

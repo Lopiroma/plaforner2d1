@@ -1,0 +1,16 @@
+{
+	"name": "GameOver",
+	"plugin-id": "Text",
+	"sid": 203169532563669,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Якорь",
+			"sid": 457044351691439
+		}
+	],
+	"effectTypes": []
+}

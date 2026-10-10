@@ -1,0 +1,76 @@
+{
+	"name": "Игрок",
+	"plugin-id": "Sprite",
+	"sid": 977115170143370,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "PeerID",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 861394956388392
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Платформер",
+			"sid": 795728888838646
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundTo",
+			"sid": 714363287364663
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "СледитьЗа",
+			"sid": 625617225311387
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Мигание",
+			"sid": 417951211353594
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 180,
+						"height": 276,
+						"originX": 0.5277777777777778,
+						"originY": 0.5833333333333334,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6992972,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Оружие",
+								"x": 0.8611111111111112,
+								"y": 0.605072463768116
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 111006843446428,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

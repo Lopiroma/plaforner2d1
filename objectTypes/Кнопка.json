@@ -1,0 +1,15 @@
+{
+	"name": "Кнопка",
+	"plugin-id": "Button",
+	"sid": 170491096765074,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Якорь",
+			"sid": 515737621799372
+		}
+	]
+}
